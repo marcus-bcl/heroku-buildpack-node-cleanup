@@ -4,13 +4,8 @@
 BUILD_DIR=$1
 ENV_DIR=$3
 
-echo "-----> Deleting the node_modules directory"
+echo "-----> Deleting the specified directory"
 
-if [ -f $ENV_DIR/NPM_PREFIX ]; then
-    rm -r $BUILD_DIR/$(cat $ENV_DIR/NPM_PREFIX)/node_modules
-else
-    rm -r $BUILD_DIR/node_modules
+if [ -f $ENV_DIR/DIRECTORY ]; then
+    rm -r $BUILD_DIR/$(cat $ENV_DIR/DIRECTORY)
 fi
-
-echo "-----> Deleting the nodejs.sh startup script"
-rm $BUILD_DIR/.profile.d/nodejs.sh
